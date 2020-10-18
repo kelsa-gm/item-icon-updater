@@ -14,6 +14,13 @@ Names are case sensitive (so "Bite" works, but "bite" does not).
     
 2. Enable the Module in your Worlds Module Settings
 
+## Usage
+Create new items. If the name is recognized, the icon will automatically be assigned:
+![](new_actor.gif)
+
+Icons are automatically updated when importing from D&D Beyond using the VTTA module:
+![](beyond.gif)
+
 ## Future Work
 1. Create an updated icon dictionary using the new icons provided in Core 0.7x. 
 2. Make the lookup values case insensitive.
