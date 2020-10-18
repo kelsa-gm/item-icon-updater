@@ -6,7 +6,7 @@ Updates some icons for actions and other items with missing icons. Searches all 
 ## Installation
 1. Copy this link and use it in Foundry's Module Manager to install the Module
 
-    > 
+    > https://raw.githubusercontent.com/kelsa-gm/item-icon-updater/main/module.json
     
 2. Enable the Module in your Worlds Module Settings
 
