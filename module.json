@@ -1,14 +1,14 @@
 {
   "name": "item-icon-updater",
   "title": "Item Icon Updater",
-  "description": "Updates some icons for actions and other items with missing icons. Searches all items from all actors in the current world for missing icons, and checks a curated list based on the SRD. Update happens automatically on page refresh. Icons for tokens already existing on the map are not updated - a new token must be brought in from the actor. This is particularly useful in conjunction with VTTA D&D Beyond Integration. After importing monsters from D&D Beyond, simply refresh the page to update the icons.",
+  "description": "Updates some icons for actions and other items with missing icons. Searches all items from all actors in the current world for missing icons, and checks a curated list based on the SRD. Update happens automatically on page refresh, actor creation, item creation, and item update. Icons for tokens already existing on the map are not updated - a new token must be brought in from the actor. This is particularly useful in conjunction with VTTA D&D Beyond Integration.",
   "author": "kelsa-gm",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "minimumCoreVersion": "0.6.6",
   "compatibleCoreVersion": "0.6.6",
   "system": "dnd5e",
   "url": "https://github.com/kelsa-gm/item-icon-updater",
-  "manifest": "https://raw.githubusercontent.com/kelsa-gm/item-icon-updater/main/module.json",
-  "download": "https://github.com/kelsa-gm/item-icon-updater/archive/main.zip",
-  "scripts": ["update-icons.js"]
+  "manifest": "https://raw.githubusercontent.com/kelsa-gm/item-icon-updater/initial-cleanup/module.json",
+  "download": "https://github.com/kelsa-gm/item-icon-updater/archive/initial-cleanup.zip",
+  "esmodules": ["update-icons.js"]
 }
