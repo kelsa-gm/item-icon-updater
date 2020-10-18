@@ -10,4 +10,7 @@ Updates some icons for actions and other items with missing icons. Searches all 
     
 2. Enable the Module in your Worlds Module Settings
 
-Note: This is a quick-and-dirty module that gets the job done. Anyone who wants to use this as a starting point for a more robust module is welcome to!
+## Future Work
+1. Create an updated icon dictionary using the new icons provided in Core 0.7x. 
+
+Note: Anyone who wants to use this as a starting point for a more robust module is welcome to!
