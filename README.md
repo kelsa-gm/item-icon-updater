@@ -5,6 +5,8 @@ Updates some icons for actions and other items with missing icons. This is parti
 
 The updates happen automatically when the page reloads, when a new Actor is created, and when an Item is created or updated.
 
+Names are case sensitive (so "Bite" works, but "bite" does not).
+
 ## Installation
 1. Copy this link and use it in Foundry's Module Manager to install the Module
 
@@ -14,6 +16,7 @@ The updates happen automatically when the page reloads, when a new Actor is crea
 
 ## Future Work
 1. Create an updated icon dictionary using the new icons provided in Core 0.7x. 
+2. Make the lookup values case insensitive.
 
 ## Acknowledgements
 Thanks to [VanceCole](https://github.com/VanceCole) for the helpful suggestions.
