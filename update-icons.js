@@ -20,19 +20,17 @@ Hooks.on("createActor", function(actor) {
 });
 
 function UpdateAllActors() {
-	log("Begin updating item icons for all actors in game.");
-    let updateCount = 0;
+	log("Update All Actors triggered.");
 	// There's probably a cleaner way to iterate through actors in the game.
 	let actorCount;
 	for (actorCount = 0; actorCount < game.data.actors.length; actorCount++) {
 		const actor = game.actors.get(game.data.actors[actorCount]._id);
-		updateCount += UpdateActor(actor);
+		UpdateActor(actor);
 	}
-	log("Completed updating item icons. Updated Items: " + updateCount)
+	log("Completed updating item icons.")
 }
 
 function UpdateActor(actor) {
-	let count = 0;
     let updates = [];
 	  
 	for (let key of actor.items.keys()) {
@@ -47,13 +45,16 @@ function UpdateActor(actor) {
 		    if (itemName in iconDict) {
 				//log([actor.name, itemName, key].join());
 				updates.push({_id: item._id, img: iconDict[itemName]});
-				count += 1;
 			}
 		}
 	}
 	if (updates.length > 0) {
-		actor.updateEmbeddedEntity("OwnedItem", updates);
-		log(actor.name + ": " + updates.length + " updates.");
+		if(actor.can(game.user, 'update')){
+			actor.updateEmbeddedEntity("OwnedItem", updates);
+			log(actor.name + ": " + updates.length + " updates.");
+		}
+		else {
+			log("User lacks permission to update " + actor.name);
+		}
 	};
-	return count;
 }
