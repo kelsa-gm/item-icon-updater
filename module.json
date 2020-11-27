@@ -3,7 +3,7 @@
   "title": "Item Icon Updater",
   "description": "Updates some icons for actions and other items with missing icons. This is particularly useful in conjunction with VTTA D&D Beyond Integration. Searches all items from all actors in the current world for missing icons, and checks a curated list based on the SRD. Update happens automatically on page refresh, actor creation, item creation, and item update. Icons for tokens already existing on the map are not updated - a new token must be brought in from the actor.",
   "author": "kelsa-gm",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "minimumCoreVersion": "0.6.6",
   "compatibleCoreVersion": "0.6.6",
   "system": "dnd5e",
