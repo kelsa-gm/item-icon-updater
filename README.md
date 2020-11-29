@@ -36,7 +36,7 @@ Note that different sources may use different names for items, such as "Crossbow
 To specify a custom dictionary, put the dictionary file in the User Data directory, and add the path to the module settings. For example: `worlds/myworld/iconDictonary.js`.  The custom dictionary should be a text file with a `.js` extension in the following format:
 
 ```
-export let customDict = {
+export const customDict = {
     "Item Name 1": "path/to/icon1.jpg", 
     "Item Name 2": "path/to/icon2.jpg"
 }
