@@ -14,6 +14,8 @@ The item name is searched in the following locations in order. If a matching nam
 1. All user-defined Items in the current game world.
 1. All Item Compendiums in the current game world. 
 
+Note: The mapping of item names to icon files is performed at page load/refresh, so if game items or compendium items are added, these won't be recognized until the page is refreshed.
+
 ## Installation
 1. Copy this link and use it in Foundry's Module Manager to install the Module
 
