@@ -26,9 +26,14 @@ The user may optionally specify a custom dictionary of item names and icon files
 
 Updates to the custom dictionary in the module settings take effect after the next page refresh. 
 
-Item names are case sensitive (so "Bite" works, but "bite" does not). Any suffix in parentheses is ignored, such as "(Hybrid Form Only)" or "(Costs 2 Actions)".
+The following rules are used when searching for item names:
+* Item names are case sensitive (so "Bite" works, but "bite" does not). 
+* Any character after the first open parentheses is ignored. This trims off suffixes such as "(Hybrid Form Only)" or "(Costs 2 Actions)".
+* Any leading or trailing whitespace is ignored.
 
-The custom dictionary should be a text file in the following format:
+Note that different sources may use different names for items, such as "Crossbow, Light" vs "Light Crossbow". The custom dictionary can be used to catch these cases. Additionally, the built-in dictionary will gradually be extended in future updates to include more of these cases.
+
+To specify a custom dictionary, put the dictionary file in the User Data directory, and add the path to the module settings. For example: "worlds/myworld/iconDictonary.js".  The custom dictionary should be a text file with a ".js" extension in the following format:
 
 ```
 export let customDict = {
