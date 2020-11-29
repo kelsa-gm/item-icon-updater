@@ -1,19 +1,18 @@
 # Item Icon Updater
-A Foundry VTT Module for updating icons with missing images based on the D&amp;D5e SRD icons.
+A Foundry VTT Module for updating missing icons on actor-owned items (inventory, features, spells, etc.). 
+This is particularly useful in conjunction with the VTTA D&D Beyond Integration module for importing full characters.
 
-Updates some icons for actions and other items with missing icons. This is particularly useful in conjunction with VTTA D&D Beyond Integration. Searches all items from all actors in the current world for missing icons. 
+Updates happen at the following triggers:
+* Page load or refresh: All items owned by all actors are checked.
+* Actor creation: All items owned by the new actor are checked.
+* Owned Item creation: Item is checked.
+* Owned Item renamed: Item is checked.
 
-The item name is searched in the following locations, in this order:
+The item name is searched in the following locations in order. If a matching name is found, the item icon will be updated. Otherwise, the default mystery-man.svg icon is used.
 1. A user-specified dictionary. (See below for more information)
-1. A built-in dictionary.
+1. A built-in dictionary currated as part of this module.
 1. All user-defined Items in the current game world.
 1. All Item Compendiums in the current game world. 
-
-If a matching name is found, the item icon will be updated.
-
-The updates happen automatically when the page reloads, when a new Actor is created, and when an Item owned by an Actor is created or has its name updated.
-
-Icons for tokens already existing on the map are not updated - a new token must be brought in from the actor.
 
 ## Installation
 1. Copy this link and use it in Foundry's Module Manager to install the Module
@@ -36,14 +35,10 @@ The user may optionally specify a custom dictionary of item names and icon files
 
 Updates to the custom dictionary in the module settings take effect after the next page refresh. 
 
-The following rules are used when searching for item names:
-* Item names are case insensitive. 
-* Any character after the first open parentheses is ignored. This trims off suffixes such as "(Hybrid Form Only)" or "(Costs 2 Actions)".
-* Any leading or trailing whitespace is ignored.
-
 Note that different sources may use different names for items, such as "Crossbow, Light" vs "Light Crossbow". The custom dictionary can be used to catch these cases. Additionally, the built-in dictionary will gradually be extended in future updates to include more of these cases.
 
-To specify a custom dictionary, put the dictionary file in the User Data directory, and add the path to the module settings. For example: `worlds/myworld/iconDictonary.js`.  The custom dictionary should be a text file with a `.js` extension in the following format:
+### Custom Dictionary Format
+To specify a custom dictionary, put the dictionary file anywhere in the User Data directory, and add the path to the module settings. For example: `worlds/myworld/iconDictonary.js`.  The custom dictionary should be a text file with a `.js` extension in the following format:
 
 ```
 export const customDict = {
@@ -51,6 +46,12 @@ export const customDict = {
     "Item Name 2": "path/to/icon2.jpg"
 }
 ```
+
+The following rules are used when searching for item names:
+* Item names are case insensitive. 
+* Any text after the first open parentheses is ignored. This trims off suffixes such as "(Hybrid Form Only)" or "(Costs 2 Actions)".
+* Any leading or trailing whitespace is ignored.
+
 ### Icon Libraries
 Foundry 0.7.x includes a built-in library of icons that can be used by the custom dictionary. These can be viewed in the installation folder, typically `C:\Program Files\FoundryVTT\resources\app\public\icons`. To reference these icons in a custom dictionary, use the path `../../icons/`.
 
