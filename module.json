@@ -8,7 +8,7 @@
   "compatibleCoreVersion": "0.7.7",
   "system": "dnd5e",
   "url": "https://github.com/kelsa-gm/item-icon-updater",
-  "manifest": "https://raw.githubusercontent.com/kelsa-gm/item-icon-updater/main/module.json",
-  "download": "https://github.com/kelsa-gm/item-icon-updater/archive/main.zip",
+  "manifest": "https://raw.githubusercontent.com/kelsa-gm/item-icon-updater/update1/module.json",
+  "download": "https://github.com/kelsa-gm/item-icon-updater/archive/update1.zip",
   "esmodules": ["update-icons.js"]
 }
