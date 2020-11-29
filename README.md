@@ -7,6 +7,15 @@ The updates happen automatically when the page reloads, when a new Actor is crea
 
 Names are case sensitive (so "Bite" works, but "bite" does not).
 
+Updates to the custom dictionary in the module settings take effect after the next page refresh. The custom dictionary should be a text file in the following format:
+
+```
+export let customDict = {
+    "Item Name 1": "path/to/icon1.jpg", 
+    "Item Name 2": "path/to/icon2.jpg"
+}
+```
+
 ## Installation
 1. Copy this link and use it in Foundry's Module Manager to install the Module
 
