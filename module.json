@@ -1,7 +1,7 @@
 {
   "name": "item-icon-updater",
   "title": "Item Icon Updater",
-  "description": "Updates some icons for actions and other items with missing icons. This is particularly useful in conjunction with VTTA D&D Beyond Integration. Searches all items from all actors in the current world for missing icons. Searches first in a curated list, then in any Items defined for the game, then all Item compendiums in th. Update happens automatically on page refresh, actor creation, item creation, and item update. Icons for tokens already existing on the map are not updated - a new token must be brought in from the actor. The dictionary is built at page load, so if game item or compendium images are updated, these changes won't be reflected until the next page refresh.",
+  "description": "Automatically updates missing icons on actor-owned items (inventory, features, spells, etc.). This is particularly useful in conjunction with the VTTA D&D Beyond Integration module for importing full characters. Item names are searched for in optional user-specified dictionary, a built-in dictionary, all game items, and all item compendiums.",
   "author": "kelsa-gm",
   "version": "0.0.4",
   "minimumCoreVersion": "0.6.6",
