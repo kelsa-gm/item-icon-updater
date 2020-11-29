@@ -1,11 +1,13 @@
 # Item Icon Updater
 A Foundry VTT Module for updating icons with missing images based on the D&amp;D5e SRD icons.
 
-Updates some icons for actions and other items with missing icons. This is particularly useful in conjunction with VTTA D&D Beyond Integration. Searches all items from all actors in the current world for missing icons, and checks a curated list based on the SRD. Icons for tokens already existing on the map are not updated - a new token must be brought in from the actor.
+Updates some icons for actions and other items with missing icons. This is particularly useful in conjunction with VTTA D&D Beyond Integration. Searches all items from all actors in the current world for missing icons. These item names are compared first to a curated list of images, then to user-defined items in the game, and finally across all compendiums in the game. If a matching name is found, the item icon will be updated.
+
+Icons for tokens already existing on the map are not updated - a new token must be brought in from the actor.
 
 The updates happen automatically when the page reloads, when a new Actor is created, and when an Item is created or updated.
 
-Names are case sensitive (so "Bite" works, but "bite" does not).
+Names are case sensitive (so "Bite" works, but "bite" does not). Any suffix in parentheses is ignored, such as "(Hybrid Form Only)" or "(Costs 2 Actions)".
 
 ## Installation
 1. Copy this link and use it in Foundry's Module Manager to install the Module
