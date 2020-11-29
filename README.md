@@ -33,7 +33,7 @@ The following rules are used when searching for item names:
 
 Note that different sources may use different names for items, such as "Crossbow, Light" vs "Light Crossbow". The custom dictionary can be used to catch these cases. Additionally, the built-in dictionary will gradually be extended in future updates to include more of these cases.
 
-To specify a custom dictionary, put the dictionary file in the User Data directory, and add the path to the module settings. For example: "worlds/myworld/iconDictonary.js".  The custom dictionary should be a text file with a ".js" extension in the following format:
+To specify a custom dictionary, put the dictionary file in the User Data directory, and add the path to the module settings. For example: `worlds/myworld/iconDictonary.js`.  The custom dictionary should be a text file with a `.js` extension in the following format:
 
 ```
 export let customDict = {
@@ -41,6 +41,10 @@ export let customDict = {
     "Item Name 2": "path/to/icon2.jpg"
 }
 ```
+### Icon Libraries
+Foundry 0.7.x includes a built-in library of icons that can be used by the custom dictionary. These can be viewed in the installation folder, typically `C:\Program Files\FoundryVTT\resources\app\public\icons`. To reference these icons in a custom dictionary, use the path `../../icons/`.
+
+If the dnd5e system is installed, an additional library of icons is available. These can be viewed in the User Data folder under `systems/dnd5e/icons/`. To reference these icons in a custom dictionary, use the path `systems/dnd5e/icons/`.
 
 ## Future Work
 1. Create an updated icon dictionary using the new icons provided in Core 0.7x. 
