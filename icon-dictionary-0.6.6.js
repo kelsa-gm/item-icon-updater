@@ -1,3 +1,5 @@
+// Paths beginning with systems/dnd5e depend on the dnd5e world systems being installed.
+// Paths beginning with ../../icons/ use the Core Data icons included with Foundry 7.x
 export let iconDict = {
 	"Draining Kiss": "systems/dnd5e/icons/skills/shadow_20.jpg",
 	"Aberrant Ground": "systems/dnd5e/icons/skills/emerald_03.jpg",
