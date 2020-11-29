@@ -4,6 +4,7 @@ import { log } from './helper.js';
 Hooks.on("ready", function() {
 	// This code runs once core initialization is ready and game data is available.
 	UpdateAllActors();
+	UpdateDictionary();
 	//setTimeout(() => {  UpdateAllActors(); }, 2000); // Used in initial testing, does not appear needed.
 });
 
@@ -63,18 +64,26 @@ function UpdateItem(actor, item) {
 }
 
 function GetImageUpdate(item) {
-	let imageArr = item.img.split("/");
-	let imageName = imageArr[imageArr.length-1];
+	let imageName = GetImageName(item);
 	  
 	if (imageName == "mystery-man.svg") {
-		// Splitting on parentheses and trimming white space handles cases such as "(Hybrid Form Only)" as well as D&D Beyond additions such as "(Costs 2 Actions)".
-		let itemName = item.name.split("(")[0].trim(); 
+		let itemName = GetCleanedItemName(item); 
 		
 		if (itemName in iconDict) {
 			return {_id: item._id, img: iconDict[itemName]};
 		}
 	}
 	return null;
+}
+
+function GetImageName(item) {
+	let imageArr = item.img.split("/");
+	return imageArr[imageArr.length-1];
+}
+
+function GetCleanedItemName(item) {
+	// Splitting on parentheses and trimming white space handles cases such as "(Hybrid Form Only)" as well as D&D Beyond additions such as "(Costs 2 Actions)".
+	return item.name.split("(")[0].trim(); 
 }
 
 function ExecuteUpdates(actor, updates) {
@@ -87,4 +96,31 @@ function ExecuteUpdates(actor, updates) {
 			log("User lacks permission to update " + actor.name + ". This message may display for a player when non-owned characters are being updated by others.");
 		}
 	};
+}
+
+async function UpdateDictionary() {
+	log("Building dictionary.")
+	// Search all custom game items the user has access to.
+	let gameItems = game.data.items.filter(i=>(game.user.isGM || !i.private))
+	gameItems.forEach(item => AddItemToDictionary(item));
+	
+	// Search all Item compendiums the user has access to.
+	let packs = game.packs.filter(p=>(game.user.isGM || !p.private) && p.entity === "Item");
+	for (let pack of packs) {
+		//log("Adding " + pack.metadata.label + " to dictionary.");
+		let packContent = await pack.getContent();
+		for (let item of packContent) {
+			AddItemToDictionary(item);
+		}
+	}
+}
+
+function AddItemToDictionary (item) {
+	let imageName = GetImageName(item);
+	if (imageName == "mystery-man.svg") {return;}
+	
+	let itemName = GetCleanedItemName(item);
+	if (!(itemName in iconDict)){
+		iconDict[itemName] = item.img;
+	}
 }
