@@ -134,7 +134,8 @@ async function UpdateDictionary() {
 	
 	// Search all custom game items the user has access to.
 	// TODO: This filter does not seem to work - players can update icons using item names they do not have access to.
-	let gameItems = game.data.items.filter(i=>(game.user.isGM || !i.private))
+	// TODO: I think there is a bug with classes. For now filtering class items out.
+	let gameItems = game.data.items.filter(i=>(game.user.isGM || !i.private) && i.type != "class")
 	gameItems.forEach(item => AddItemToDictionary(item));
 	
 	// Search all Item compendiums the user has access to.
@@ -144,7 +145,10 @@ async function UpdateDictionary() {
 		//log("Adding " + pack.metadata.label + " to dictionary.");
 		let packContent = await pack.getContent();
 		for (let item of packContent) {
-			AddItemToDictionary(item);
+			// TODO: I think there is a bug with classes. For now filtering class items out.
+			if (item.type != "class") {
+				AddItemToDictionary(item);
+			}
 		}
 	}
 	UpdateAllActors();
