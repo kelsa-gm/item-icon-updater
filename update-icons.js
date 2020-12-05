@@ -100,7 +100,8 @@ function GetImageName(item) {
 
 function GetCleanedItemName(item) {
 	// Splitting on parentheses and trimming white space handles cases such as "(Hybrid Form Only)" as well as D&D Beyond additions such as "(Costs 2 Actions)".
-	return item.name.split("(")[0].trim().toLowerCase(); 
+	// Also remove the three types of single quotes that can get mixed up.
+	return item.name.replace(/(\'|\‘|\’)/gm,"").split("(")[0].trim().toLowerCase(); 
 }
 
 function GetAlternateItemName(itemName) {
@@ -141,7 +142,7 @@ async function UpdateDictionary() {
 		try {
 			let { customDict } = await import ("../../" + customDictPath);
 			for (let key in customDict) {
-				combinedDict[key.toLowerCase()] = customDict[key];
+				combinedDict[key.replace(/(\'|\‘|\’)/gm,"").toLowerCase()] = customDict[key];
 			}
 		}
 		catch(err) {
@@ -151,7 +152,7 @@ async function UpdateDictionary() {
 	
 	// Load Default Dictionary
 	for (let key in iconDict) {
-		combinedDict[key.toLowerCase()] = iconDict[key];
+		combinedDict[key.replace(/(\'|\‘|\’)/gm,"").toLowerCase()] = iconDict[key];
 	}
 	
 	// Search all custom game items the user has access to.
@@ -178,6 +179,6 @@ function AddItemToDictionary (item) {
 	
 	let itemName = GetCleanedItemName(item);
 	if (!(itemName in combinedDict)){
-		combinedDict[itemName.toLowerCase()] = item.img;
+		combinedDict[itemName.replace(/(\'|\‘|\’)/gm,"").toLowerCase()] = item.img;
 	}
 }
