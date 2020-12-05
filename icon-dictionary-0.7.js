@@ -488,7 +488,6 @@ export let iconDict = {
 	"Tusks": "systems/dnd5e/icons/skills/beast_02.jpg",
 	"Two Heads": "systems/dnd5e/icons/skills/blood_10.jpg",
 	"Two-Headed": "systems/dnd5e/icons/skills/red_02.jpg",
-	"Unarmed Strike": "systems/dnd5e/icons/skills/blood_11.jpg",
 	"Undead Fortitude": "systems/dnd5e/icons/skills/affliction_13.jpg",
 	"Underwater Camouflage": "systems/dnd5e/icons/skills/blue_16.jpg",
 	"Unnerving Mask": "systems/dnd5e/icons/skills/blood_13.jpg",
