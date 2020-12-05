@@ -1,4 +1,4 @@
-import { iconDict } from './icon-dictionary-0.6.6.js';
+import { iconDict } from './icon-dictionary-0.7.js';
 import { log } from './helper.js';
 let combinedDict = {};
 
