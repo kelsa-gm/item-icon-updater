@@ -51,8 +51,10 @@ export const customDict = {
 
 The following rules are used when searching for item names:
 * Item names are case insensitive. 
+* Single quotes (' ‘ ’) are ignored.
 * Any text after the first open parentheses is ignored. This trims off suffixes such as "(Hybrid Form Only)" or "(Costs 2 Actions)".
 * Any leading or trailing whitespace is ignored.
+* If the name can't be matched, it attempts to find a similar name following a few conventions, such as "Crossbow, Light" to "Light Crossbow", and omitting modifiers such as " +1".
 
 ### Icon Libraries
 Foundry 0.7.x includes a built-in library of icons that can be used by the custom dictionary. These can be viewed in the installation folder, typically `C:\Program Files\FoundryVTT\resources\app\public\icons`. To reference these icons in a custom dictionary, use the path `../../icons/`.
@@ -66,6 +68,7 @@ If the dnd5e system is installed, an additional library of icons is available. T
 ## Known Bugs
 1. If you import a character from D&D Beyond using the VTTA module, then disable the Item Icon Updater module prior to refreshing the page, the icons for the imported character will be missing. To avoid this issue, refresh the page prior to disabling the Item Icon Updater module.
 1. If a player creates an item on their character sheet that matches the name for a game Item or a Compendium that they do not have permissions to access, their item icon will still be updated. 
+1. Class items (Barbarian, Bard, etc.) are currently skipped due to a bug updating these items.
 
 ## Acknowledgements
 Thanks to [VanceCole](https://github.com/VanceCole) for the helpful suggestions.
