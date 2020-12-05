@@ -5,7 +5,7 @@
   "author": "kelsa-gm",
   "version": "0.0.4",
   "minimumCoreVersion": "0.6.6",
-  "compatibleCoreVersion": "0.7.7",
+  "compatibleCoreVersion": "0.7.8",
   "system": "dnd5e",
   "url": "https://github.com/kelsa-gm/item-icon-updater",
   "manifest": "https://raw.githubusercontent.com/kelsa-gm/item-icon-updater/update1/module.json",
