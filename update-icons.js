@@ -104,14 +104,18 @@ function GetCleanedItemName(item) {
 }
 
 function GetAlternateItemName(itemName) {
-	// Remove any +x modifiers
-	let baseName = itemName.split(" +")[0];
-	// D&D Beyond sometimes names items such as "Crossbow, Light" where the Compendium is "Light Crossbow"
-	let splitName = baseName.split(", ");
+	// Try parsing the name according to some common patterns that may be used by D&D Beyond or other item creation tools.
+	
+	// Remove any +x modifiers, following two different patterns (with or without comma)
+	let newName = itemName.split(", +")[0];
+	newName = newName.split(" +")[0];
+	
+	// Convert comma inverted names: "Crossbow, Light" to "Light Crossbow"
+	let splitName = newName.split(", ");
 	if (splitName.length == 2) {
 		return splitName[1] + " " + splitName[0];
 	}
-	return null;
+	return newName;
 }
 
 function ExecuteUpdates(actor, updates) {
