@@ -74,6 +74,9 @@ function UpdateItem(actor, item) {
 }
 
 function GetImageUpdate(item) {
+	// TODO: There is currently a bug where class items cannot be updated. Skipping them for now.
+	if (item.type == "class") { return null }
+
 	let imageName = GetImageName(item);
 	  
 	if (imageName == "mystery-man.svg") {
@@ -147,8 +150,7 @@ async function UpdateDictionary() {
 	
 	// Search all custom game items the user has access to.
 	// TODO: This filter does not seem to work - players can update icons using item names they do not have access to.
-	// TODO: I think there is a bug with classes. For now filtering class items out.
-	let gameItems = game.data.items.filter(i=>(game.user.isGM || !i.private) && i.type != "class")
+	let gameItems = game.data.items.filter(i=>(game.user.isGM || !i.private) && i.type)
 	gameItems.forEach(item => AddItemToDictionary(item));
 	
 	// Search all Item compendiums the user has access to.
@@ -158,10 +160,7 @@ async function UpdateDictionary() {
 		//log("Adding " + pack.metadata.label + " to dictionary.");
 		let packContent = await pack.getContent();
 		for (let item of packContent) {
-			// TODO: I think there is a bug with classes. For now filtering class items out.
-			if (item.type != "class") {
-				AddItemToDictionary(item);
-			}
+			AddItemToDictionary(item);
 		}
 	}
 	UpdateAllActors();
