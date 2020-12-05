@@ -47,7 +47,7 @@ The user may optionally specify a custom dictionary of item names and icon files
 
 Updates to the custom dictionary in the module settings take effect after the next page refresh. 
 
-Note that different sources may use different names for items, such as "Crossbow, Light" vs "Light Crossbow". The custom dictionary can be used to catch these cases. Additionally, the built-in dictionary will gradually be extended in future updates to include more of these cases.
+Note that different sources may use different names for items, such as "Plate" vs "Plate Armor". The custom dictionary can be used to catch these cases. Additionally, the built-in dictionary and logic will gradually be extended in future updates to cover more of these cases.
 
 ### Custom Dictionary Format
 To specify a custom dictionary, put the dictionary file anywhere in the User Data directory, and add the path to the module settings. For example: `worlds/myworld/iconDictonary.js`.  The custom dictionary should be a text file with a `.js` extension in the following format:
