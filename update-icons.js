@@ -78,9 +78,13 @@ function GetImageUpdate(item) {
 	  
 	if (imageName == "mystery-man.svg") {
 		let itemName = GetCleanedItemName(item);
+		let altItemName = GetAlternateItemName(itemName);
 		
 		if (itemName in combinedDict) {
 			return {_id: item._id, img: combinedDict[itemName]};
+		}
+		else if {altItemName in combinedDict {
+			return {_id: item._id, img: combinedDict[altItemName]};
 		}
 	}
 	return null;
@@ -94,6 +98,15 @@ function GetImageName(item) {
 function GetCleanedItemName(item) {
 	// Splitting on parentheses and trimming white space handles cases such as "(Hybrid Form Only)" as well as D&D Beyond additions such as "(Costs 2 Actions)".
 	return item.name.split("(")[0].trim().toLowerCase(); 
+}
+
+function GetAlternateItemName(itemName) {
+	// D&D Beyond sometimes names items such as "Crossbow, Light" where the Compendium is "Light Crossbow"
+	let splitName = item.name.split(", ");
+	if (splitName.length == 2) {
+		return splitName[1] + " " + splitName[1];
+	}
+	return null;
 }
 
 function ExecuteUpdates(actor, updates) {
