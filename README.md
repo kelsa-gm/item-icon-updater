@@ -10,7 +10,7 @@ Updates happen at the following triggers:
 
 The item name is searched in the following locations in order. If a matching name is found, the item icon will be updated. Otherwise, the default mystery-man.svg icon is used.
 1. A user-specified dictionary. (See below for more information)
-1. A built-in dictionary currated as part of this module.
+1. A built-in dictionary curated as part of this module.
 1. All user-defined Items in the current game world.
 1. All Item Compendiums in the current game world. 
 
