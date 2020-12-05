@@ -16,6 +16,16 @@ The item name is searched in the following locations in order. If a matching nam
 
 Note: The mapping of item names to icon files is performed at page load/refresh, so if game items or compendium items are added, these won't be recognized until the page is refreshed.
 
+## Before You Install
+
+This module provides similar functionality to the more widely used [vtta-iconizer by Virtual Tabletop Assets](https://www.vttassets.com/assets/vtta-iconizer).
+
+You should use one or the other, not both, as they are likely to conflict with each other.
+
+I created this module because initially the VTTA version was not working for me, and also as an excuse to learn how to develop a module. 
+
+My approach is slightly different from the VTTA approach, which means the tools have different coverage of recognized icons. The VTTA module is likely to have larger coverage overall. My approach has the advantage of recognizing all compendiums and user-defined items in the game world so it will automatically grow over time and may avoid some duplication of effort.
+
 ## Installation
 1. Copy this link and use it in Foundry's Module Manager to install the Module
 
