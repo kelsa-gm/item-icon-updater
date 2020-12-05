@@ -3,6 +3,16 @@
 // Note: Initially this list was intended to grow to be a complete list. Now it only needs to be a supplement for items not found in the default compendiums.
 // There is still some overlap between this list and the compendiums, and in some cases different icons were chosen for this list as being more appropriate.
 export let iconDict = {
+	"Unarmed Strike": "systems/dnd5e/icons/skills/yellow_08.jpg",
+	"Flurry of Blows": "systems/dnd5e/icons/skills/blood_11.jpg",
+	"Life Transference": "systems/dnd5e/icons/skills/blood_04.jpg",
+	"Word of Radiance": "systems/dnd5e/icons/skills/yellow_17.jpg",
+	"Toll the Dead": "../../icons/tools/instruments/bell-brass-brown.webp",
+	"Phantasmal Force": "systems/dnd5e/icons/skills/shadow_21.jpg",
+	"Gift of Gab": "systems/dnd5e/icons/skills/red_22.jpg",
+	"Tasha's Hideous Laughter": "systems/dnd5e/icons/spells/explosion-magenta-2.jpg"
+	"Dissonant Whispers": "systems/dnd5e/icons/skills/ice_15.jpg",
+	"Thunderclap": "systems/dnd5e/icons/spells/air-burst-air-1.jpg",
 	"Splint": "systems/dnd5e/icons/items/armor/splint.png",
 	"Padded": "systems/dnd5e/icons/items/armor/leather.png",
 	"Leather": "systems/dnd5e/icons/items/armor/leather.png",
