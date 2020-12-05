@@ -10,7 +10,7 @@ export let iconDict = {
 	"Toll the Dead": "../../icons/tools/instruments/bell-brass-brown.webp",
 	"Phantasmal Force": "systems/dnd5e/icons/skills/shadow_21.jpg",
 	"Gift of Gab": "systems/dnd5e/icons/skills/red_22.jpg",
-	"Tasha's Hideous Laughter": "systems/dnd5e/icons/spells/explosion-magenta-2.jpg"
+	"Tasha's Hideous Laughter": "systems/dnd5e/icons/spells/explosion-magenta-2.jpg",
 	"Dissonant Whispers": "systems/dnd5e/icons/skills/ice_15.jpg",
 	"Thunderclap": "systems/dnd5e/icons/spells/air-burst-air-1.jpg",
 	"Splint": "systems/dnd5e/icons/items/armor/splint.png",
