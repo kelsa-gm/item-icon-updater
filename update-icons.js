@@ -83,7 +83,7 @@ function GetImageUpdate(item) {
 		if (itemName in combinedDict) {
 			return {_id: item._id, img: combinedDict[itemName]};
 		}
-		else if {altItemName in combinedDict {
+		else if (altItemName in combinedDict) {
 			return {_id: item._id, img: combinedDict[altItemName]};
 		}
 	}
