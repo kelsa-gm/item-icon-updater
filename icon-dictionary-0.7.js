@@ -3,6 +3,13 @@
 // Note: Initially this list was intended to grow to be a complete list. Now it only needs to be a supplement for items not found in the default compendiums.
 // There is still some overlap between this list and the compendiums, and in some cases different icons were chosen for this list as being more appropriate.
 export let iconDict = {
+	"Splint": "systems/dnd5e/icons/items/armor/splint.png",
+	"Padded": "systems/dnd5e/icons/items/armor/leather.png",
+	"Leather": "systems/dnd5e/icons/items/armor/leather.png",
+	"Studded Leather": "systems/dnd5e/icons/items/armor/studded.png",
+	"Breastplate": "systems/dnd5e/icons/items/armor/halfplate.png",
+	"Half Plate": "systems/dnd5e/icons/items/armor/halfplate.png",
+	"Plate": "systems/dnd5e/icons/items/armor/plate.png",
 	"Barbarian": "systems/dnd5e/icons/skills/weapon_01.jpg",
 	"Bard": "systems/dnd5e/icons/skills/affliction_24.jpg",
 	"Cleric": "systems/dnd5e/icons/skills/light_04.jpg",
