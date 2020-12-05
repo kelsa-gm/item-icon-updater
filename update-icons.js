@@ -102,7 +102,7 @@ function GetCleanedItemName(item) {
 
 function GetAlternateItemName(itemName) {
 	// D&D Beyond sometimes names items such as "Crossbow, Light" where the Compendium is "Light Crossbow"
-	let splitName = item.name.split(", ");
+	let splitName = itemName.split(", ");
 	if (splitName.length == 2) {
 		return splitName[1] + " " + splitName[1];
 	}
