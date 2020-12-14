@@ -22,8 +22,6 @@ This module provides similar functionality to the more widely used [vtta-iconize
 
 You should use one or the other, not both, as they are likely to conflict with each other.
 
-I created this module because initially the VTTA version was not working for me, and also as an excuse to learn how to develop a module. 
-
 My approach is slightly different from the VTTA approach, which means the tools have different coverage of recognized icons. The VTTA module is likely to have larger coverage overall. My approach has the advantage of recognizing all compendiums and user-defined items in the game world so it will automatically grow over time and may avoid some duplication of effort.
 
 ## Installation
