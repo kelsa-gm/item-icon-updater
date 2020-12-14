@@ -1,11 +1,28 @@
 # Item Icon Updater
-A Foundry VTT Module for updating icons with missing images based on the D&amp;D5e SRD icons.
+A Foundry VTT Module for updating missing icons on actor-owned items (inventory, features, spells, etc.). 
+This is particularly useful in conjunction with the VTTA D&D Beyond Integration module for importing full characters.
 
-Updates some icons for actions and other items with missing icons. This is particularly useful in conjunction with VTTA D&D Beyond Integration. Searches all items from all actors in the current world for missing icons, and checks a curated list based on the SRD. Icons for tokens already existing on the map are not updated - a new token must be brought in from the actor.
+Updates happen at the following triggers:
+* Page load or refresh: All items owned by all actors are checked.
+* Actor creation: All items owned by the new actor are checked.
+* Owned Item creation: Item is checked.
+* Owned Item renamed: Item is checked.
 
-The updates happen automatically when the page reloads, when a new Actor is created, and when an Item is created or has its name updated. 
+The item name is searched in the following locations in order. If a matching name is found, the item icon will be updated. Otherwise, the default mystery-man.svg icon is used.
+1. A user-specified dictionary. (See below for more information)
+1. A built-in dictionary curated as part of this module.
+1. All user-defined Items in the current game world.
+1. All Item Compendiums in the current game world. 
 
-Item names are case sensitive (so "Bite" works, but "bite" does not).
+Note: The mapping of item names to icon files is performed at page load/refresh, so if game items or compendium items are added, these won't be recognized until the page is refreshed.
+
+## Before You Install
+
+This module provides similar functionality to the more widely used [vtta-iconizer by Virtual Tabletop Assets](https://www.vttassets.com/assets/vtta-iconizer).
+
+You should use one or the other, not both, as they are likely to conflict with each other.
+
+My approach is slightly different from the VTTA approach, which means the tools have different coverage of recognized icons. The VTTA module is likely to have larger coverage overall. My approach has the advantage of recognizing all compendiums and user-defined items in the game world so it will automatically grow over time and may avoid some duplication of effort.
 
 ## Installation
 1. Copy this link and use it in Foundry's Module Manager to install the Module
@@ -15,15 +32,51 @@ Item names are case sensitive (so "Bite" works, but "bite" does not).
 2. Enable the Module in your Worlds Module Settings
 
 ## Usage
-Create new items. If the name is recognized, the icon will automatically be assigned:
+Create new items in an Actor's character sheet, or rename existing items. If the name is recognized, the icon will automatically be assigned:
 ![](new_actor.gif)
 
 Icons are automatically updated when importing from D&D Beyond using the VTTA module:
 ![](beyond.gif)
 
+If there are many icons to update, such as importing a new character from D&D Beyond with many spells and items, the update may take several seconds, during which the character sheet tabs may be unresponsive.
+
+## Custom Dictionary
+The user may optionally specify a custom dictionary of item names and icon files. If specified, these will override the default icons. Default icons will still be used for items not included in the custom dictionary. 
+
+Updates to the custom dictionary in the module settings take effect after the next page refresh. 
+
+Note that different sources may use different names for items, such as "Plate" vs "Plate Armor". The custom dictionary can be used to catch these cases. Additionally, the built-in dictionary and logic will gradually be extended in future updates to cover more of these cases.
+
+### Custom Dictionary Format
+To specify a custom dictionary, put the dictionary file anywhere in the User Data directory, and add the path to the module settings. For example: `worlds/myworld/iconDictonary.js`.  The custom dictionary should be a text file with a `.js` extension in the following format:
+
+```
+export const customDict = {
+    "Item Name 1": "path/to/icon1.jpg", 
+    "Item Name 2": "path/to/icon2.jpg"
+}
+```
+
+The following rules are used when searching for item names:
+* Item names are case insensitive. 
+* Single quotes (' ‘ ’) are ignored.
+* Any text after the first open parentheses is ignored. This trims off suffixes such as "(Hybrid Form Only)" or "(Costs 2 Actions)".
+* Any leading or trailing whitespace is ignored.
+* If the name can't be matched, it attempts to find a similar name following a few conventions, such as "Crossbow, Light" to "Light Crossbow", and omitting modifiers such as " +1".
+
+### Icon Libraries
+Foundry 0.7.x includes a built-in library of icons that can be used by the custom dictionary. These can be viewed in the installation folder, typically `C:\Program Files\FoundryVTT\resources\app\public\icons`. To reference these icons in a custom dictionary, use the path `../../icons/`.
+
+If the dnd5e system is installed, an additional library of icons is available. These can be viewed in the User Data folder under `systems/dnd5e/icons/`. To reference these icons in a custom dictionary, use the path `systems/dnd5e/icons/`. Other installed game systems such as pathfinder may have additional icons available.
+
 ## Future Work
-1. Create an updated icon dictionary using the new icons provided in Core 0.7x. 
-2. Make the lookup values case insensitive.
+1. Continue to expand the built-in dictionary to include additional items, including items which have slightly different names in D&D Beyond vs. the Foundry Compendiums.
+1. Add support for non-DND5e systems.
+
+## Known Bugs
+1. If you import a character from D&D Beyond using the VTTA module, then disable the Item Icon Updater module prior to refreshing the page, the icons for the imported character will be missing. To avoid this issue, refresh the page prior to disabling the Item Icon Updater module.
+1. If a player creates an item on their character sheet that matches the name for a game Item or a Compendium that they do not have permissions to access, their item icon will still be updated. 
+1. Class items (Barbarian, Bard, etc.) are currently skipped due to a bug updating these items.
 
 ## Acknowledgements
 Thanks to [VanceCole](https://github.com/VanceCole) for the helpful suggestions.
