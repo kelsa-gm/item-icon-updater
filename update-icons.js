@@ -79,7 +79,7 @@ function GetImageUpdate(item) {
 
 	let imageName = GetImageName(item);
 	  
-	if (imageName == "mystery-man.svg") {
+	if (imageName == null || imageName == "mystery-man.svg") {
 		let itemName = GetCleanedItemName(item);
 		let altItemName = GetAlternateItemName(itemName);
 		
@@ -94,7 +94,13 @@ function GetImageUpdate(item) {
 }
 
 function GetImageName(item) {
-	let imageArr = item.img.split("/");
+	let imageArr = null;
+	try {
+	    imageArr = item.img.split("/");
+	}
+	catch {
+	    return imageArr;
+	}
 	return imageArr[imageArr.length-1];
 }
 
