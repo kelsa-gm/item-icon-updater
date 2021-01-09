@@ -84,3 +84,10 @@ Thanks to [VanceCole](https://github.com/VanceCole) for the helpful suggestions.
 
 ## Collaboration
 Anyone who wants to use this as a starting point for a more robust module is welcome to!
+
+## Change Log
+### Version 0.0.5
+1. Bug Fix: [Cannot read property 'split' of undefined](https://github.com/kelsa-gm/item-icon-updater/issues/5)
+1. Updated Compatible Core Version to 0.7.9.
+1. Added change log.
+
